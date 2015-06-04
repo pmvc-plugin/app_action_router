@@ -3,7 +3,7 @@ namespace PMVC\PlugIn\routing;
 
 ${_INIT_CONFIG}[_CLASS] = 'PMVC\PlugIn\routing\routing';
 
-PMVC\initPlugIn(array(
+\PMVC\initPlugIn(array(
     'dispatcher'=>null,
     'url'=>null
 ));
