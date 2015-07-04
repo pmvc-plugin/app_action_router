@@ -22,10 +22,12 @@ class routing extends \PMVC\PlugIn
         for ($i=0, $j=count($uri);$i<$j-1;$i++) {
             $request->set($i, urldecode($uri[$i+1]));
         }
-        $controller->store(array(
-             _RUN_APP=>$request->get(0),
-             _RUN_ACTION=>$request->get(1)
-        ));
+        if (!empty($request->get(0))) {
+            $controller->store(_RUN_APP, $request->get(0));
+        }
+        if (!empty($request->get(1))) {
+            $controller->store(_RUN_ACTION, $request->get(1));
+        }
     }
 
     public function actionToUrl($action, $url=null)
