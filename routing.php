@@ -10,30 +10,31 @@ ${_INIT_CONFIG}[_CLASS] = 'PMVC\PlugIn\routing\routing';
 
 class routing extends \PMVC\PlugIn
 {
+    private $uri;
     public function onMapRequest()
     {
-        $uri = \PMVC\plug('url')->getPathInfo();
-        if (strlen($uri)<=1) {
+        $this->uri = \PMVC\plug('url')->getPathInfo();
+        if (empty($this->uri)) {
             return;
         }
-        $uri = explode('/', $uri);
+        $uris = explode('/', $this->uri);
         $controller = \PMVC\getC();
         $request = $controller->getRequest();
-        for ($i=0, $j=count($uri);$i<$j-1;$i++) {
-            $request->set($i, urldecode($uri[$i+1]));
+        for ($i=0, $j=count($uris);$i<$j-1;$i++) {
+            $request[$i]=urldecode($uris[$i+1]);
         }
-        if (!empty($request->get(0))) {
-            $controller->store(_RUN_APP, $request->get(0));
+        if (!empty($request[0])) {
+            $controller->store(_RUN_APP, $request[0]);
         }
-        if (!empty($request->get(1))) {
-            $controller->store(_RUN_ACTION, $request->get(1));
+        if (!empty($request[1])) {
+            $controller->store(_RUN_ACTION, $request[1]);
         }
     }
 
     public function actionToUrl($action, $url=null)
     {
         if (is_null($url)) {
-            $url = \PMVC\plug('url')->get('SCRIPT_NAME');
+            $url = \PMVC\plug('url')['SCRIPT_NAME'];
         }
         if (strlen($action)) {
             return \PMVC\lastSlash($url).$action;
@@ -44,7 +45,7 @@ class routing extends \PMVC\PlugIn
 
     public function initActionForm($inti, $actionForm)
     {
-        $uri = $this->get('uri');
+        $uri = $this['uri'];
         for ($i=1, $j=count($uri);$i<$j;$i++) {
             $actionForm->put($init[$i-1], $uri[$i]);
         }
