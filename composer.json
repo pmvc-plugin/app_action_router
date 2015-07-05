@@ -13,8 +13,7 @@
     ],
     "require": {
         "pmvc/pmvc": "*",
-        "pmvc-plugin/url": "@stable",
-        "pmvc-plugin/dispatcher": "@stable"
+        "pmvc-plugin/url": "*"
     },
     "minimum-stability": "dev"
 }

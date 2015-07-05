@@ -4,7 +4,6 @@ namespace PMVC\PlugIn\routing;
 ${_INIT_CONFIG}[_CLASS] = 'PMVC\PlugIn\routing\routing';
 
 \PMVC\initPlugIn(array(
-    'dispatcher'=>null,
     'url'=>null
 ));
 
@@ -53,7 +52,14 @@ class routing extends \PMVC\PlugIn
 
     public function init()
     {
-        \PMVC\plug('dispatcher')->attach($this, 'MapRequest');
+        \PMVC\call_plugin(
+            'dispatcher',
+            'attach',
+            array(
+                $this,
+                'MapRequest'
+            )
+        );
     }
 
     /**
