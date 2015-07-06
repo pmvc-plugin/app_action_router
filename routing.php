@@ -1,7 +1,7 @@
 <?php
 namespace PMVC\PlugIn\routing;
 
-${_INIT_CONFIG}[_CLASS] = 'PMVC\PlugIn\routing\routing';
+${_INIT_CONFIG}[_CLASS] = __NAMESPACE__.'\routing';
 
 \PMVC\initPlugIn(array(
     'url'=>null
