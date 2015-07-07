@@ -42,13 +42,6 @@ class routing extends \PMVC\PlugIn
         }
     }
 
-    public function initActionForm($inti, $actionForm)
-    {
-        $uri = $this['uri'];
-        for ($i=1, $j=count($uri);$i<$j;$i++) {
-            $actionForm->put($init[$i-1], $uri[$i]);
-        }
-    }
 
     public function init()
     {
