@@ -1,9 +1,8 @@
 {
-    "name": "pmvc-plugin/hello_world",
-    "description": "Hello World Plugin, show you how the pmvc work",
+    "name": "pmvc-plugin/routing",
+    "description": "PMVC routing",
     "type": "library",
-    "homepage": "https://github.com/pmvc-plugin/hello_world",
-    "keywords": ["hello", "pmvc", "plug-in"],
+    "keywords": ["routing", "pmvc", "plug-in"],
     "license": "MIT",
     "authors": [
         {

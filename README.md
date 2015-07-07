@@ -4,7 +4,7 @@
 [![License](https://poser.pugx.org/pmvc-plugin/routing/license)](https://packagist.org/packages/pmvc-plugin/routing)
 [![Total Downloads](https://poser.pugx.org/pmvc-plugin/routing/downloads)](https://packagist.org/packages/pmvc-plugin/routing) 
 
-[PMVC] Hello react.js 
+[PMVC] routing 
 ===============
 
 ## Install with Composer
