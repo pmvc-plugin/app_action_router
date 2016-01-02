@@ -50,7 +50,7 @@ class routing extends \PMVC\PlugIn
             'attach',
             array(
                 $this,
-                'MapRequest'
+                \PMVC\Event\MAP_REQUEST
             )
         );
     }
