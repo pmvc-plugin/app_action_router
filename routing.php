@@ -23,10 +23,10 @@ class routing extends \PMVC\PlugIn
             $request[$i]=urldecode($uris[$i+1]);
         }
         if (!empty($request[0])) {
-            $controller->store(_RUN_APP, $request[0]);
+            $controller->setApp($request[0]);
         }
         if (!empty($request[1])) {
-            $controller->store(_RUN_ACTION, $request[1]);
+            $controller->setAppAction($request[1]);
         }
     }
 
