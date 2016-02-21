@@ -12,7 +12,6 @@ class routing extends \PMVC\PlugIn\http\http
 {
     public function onMapRequest()
     {
-        parent::onMapRequest();
         $uri = \PMVC\plug('url')->getPathInfo();
         if (empty($uri)) {
             return;
