@@ -1,8 +1,8 @@
 {
-    "name": "pmvc-plugin/routing",
-    "description": "PMVC routing",
+    "name": "pmvc-plugin/app_action_router",
+    "description": "PMVC App Action Router",
     "type": "library",
-    "keywords": ["routing", "pmvc", "plug-in"],
+    "keywords": ["router", "pmvc", "plug-in"],
     "license": "MIT",
     "authors": [
         {

@@ -1,14 +1,16 @@
 <?php
-namespace PMVC\PlugIn\routing;
+namespace PMVC\PlugIn\app_action_router;
 
-${_INIT_CONFIG}[_CLASS] = __NAMESPACE__.'\routing';
+${_INIT_CONFIG}[_CLASS] = __NAMESPACE__.'\app_action_router';
 
 \PMVC\initPlugIn(array(
     'url'=>null,
     'http'=>null
 ));
 
-class routing extends \PMVC\PlugIn\http\http
+class app_action_router 
+    extends \PMVC\PlugIn\http\http
+    implements \PMVC\RouterInterface
 {
     public function onMapRequest()
     {

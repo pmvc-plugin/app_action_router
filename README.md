@@ -1,10 +1,10 @@
-[![Latest Stable Version](https://poser.pugx.org/pmvc-plugin/routing/v/stable)](https://packagist.org/packages/pmvc-plugin/routing) 
-[![Latest Unstable Version](https://poser.pugx.org/pmvc-plugin/routing/v/unstable)](https://packagist.org/packages/pmvc-plugin/routing) 
-[![Build Status](https://travis-ci.org/pmvc-plugin/routing.svg?branch=master)](https://travis-ci.org/pmvc-plugin/routing)
-[![License](https://poser.pugx.org/pmvc-plugin/routing/license)](https://packagist.org/packages/pmvc-plugin/routing)
-[![Total Downloads](https://poser.pugx.org/pmvc-plugin/routing/downloads)](https://packagist.org/packages/pmvc-plugin/routing) 
+[![Latest Stable Version](https://poser.pugx.org/pmvc-plugin/app_action_router/v/stable)](https://packagist.org/packages/pmvc-plugin/app_action_router) 
+[![Latest Unstable Version](https://poser.pugx.org/pmvc-plugin/app_action_router/v/unstable)](https://packagist.org/packages/pmvc-plugin/app_action_router) 
+[![Build Status](https://travis-ci.org/pmvc-plugin/app_action_router.svg?branch=master)](https://travis-ci.org/pmvc-plugin/app_action_router)
+[![License](https://poser.pugx.org/pmvc-plugin/app_action_router/license)](https://packagist.org/packages/pmvc-plugin/app_action_router)
+[![Total Downloads](https://poser.pugx.org/pmvc-plugin/app_action_router/downloads)](https://packagist.org/packages/pmvc-plugin/app_action_router) 
 
-[PMVC] routing 
+[PMVC] app_action_router
 ===============
 
 ## Install with Composer
@@ -18,12 +18,12 @@
 ```
 {
     "require": {
-        "pmvc-plugin/routing": "dev-master"
+        "pmvc-plugin/app_action_router": "dev-master"
     }
 }
 ```
    * php composer.phar install
 
 #### 2.2 Or use composer command-line
-   * php composer.phar require pmvc-plugin/routing
+   * php composer.phar require pmvc-plugin/app_action_router
 
