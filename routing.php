@@ -4,19 +4,20 @@ namespace PMVC\PlugIn\routing;
 ${_INIT_CONFIG}[_CLASS] = __NAMESPACE__.'\routing';
 
 \PMVC\initPlugIn(array(
-    'url'=>null
+    'url'=>null,
+    'http'=>null
 ));
 
-class routing extends \PMVC\PlugIn
+class routing extends \PMVC\PlugIn\http\http
 {
-    private $uri;
     public function onMapRequest()
     {
-        $this->uri = \PMVC\plug('url')->getPathInfo();
-        if (empty($this->uri)) {
+        parent::onMapRequest();
+        $uri = \PMVC\plug('url')->getPathInfo();
+        if (empty($uri)) {
             return;
         }
-        $uris = explode('/', $this->uri);
+        $uris = explode('/', $uri);
         $controller = \PMVC\getC();
         $request = $controller->getRequest();
         for ($i=0, $j=count($uris);$i<$j-1;$i++) {
@@ -42,7 +43,6 @@ class routing extends \PMVC\PlugIn
         }
     }
 
-
     public function init()
     {
         \PMVC\call_plugin(
@@ -53,30 +53,5 @@ class routing extends \PMVC\PlugIn
                 \PMVC\Event\MAP_REQUEST
             )
         );
-    }
-
-    /**
-     * execute other php
-     */
-    public function go($path)
-    {
-        header('Location:'.$path);
-        exit();
-    }
-
-    /**
-    * join query
-    */
-    public function joinQuery($path, $attr)
-    {
-        $add_path = array();
-        if (!is_array($attr)) {
-            return $path;
-        }
-        foreach ($attr as $k=>$v) {
-            $add_path[]=htmlentities(urlencode($k)).'='.htmlentities(urlencode($v));
-        }
-        $path .= ((false===strpos($path, '?'))?'?':'&'). join('&', $add_path);
-        return $path;
     }
 }
