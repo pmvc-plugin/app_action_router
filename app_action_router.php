@@ -46,7 +46,7 @@ class app_action_router
 
     public function init()
     {
-        \PMVC\call_plugin(
+        \PMVC\callPlugin(
             'dispatcher',
             'attach',
             array(
