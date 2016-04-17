@@ -19,7 +19,7 @@ class app_action_router
             return;
         }
         $uris = explode('/', $uri);
-        $controller = \PMVC\getC();
+        $controller = \PMVC\plug('controller');
         $request = $controller->getRequest();
         for ($i=0, $j=count($uris);$i<$j-1;$i++) {
             $request[$i]=urldecode($uris[$i+1]);
