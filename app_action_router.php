@@ -32,18 +32,6 @@ class app_action_router
         }
     }
 
-    public function actionToUrl($action, $url=null)
-    {
-        if (is_null($url)) {
-            $url = \PMVC\plug('url')['SCRIPT_NAME'];
-        }
-        if (strlen($action)) {
-            return \PMVC\lastSlash($url).$action;
-        } else {
-            return $url;
-        }
-    }
-
     public function init()
     {
         \PMVC\callPlugin(
