@@ -14,7 +14,7 @@ class app_action_router
 {
     public function onMapRequest()
     {
-        $uri = \PMVC\plug('url')->getPathInfo();
+        $uri = \PMVC\plug('url')->getPath();
         if (empty($uri)) {
             return;
         }

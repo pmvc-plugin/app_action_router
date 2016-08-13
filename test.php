@@ -14,4 +14,15 @@ class RoutingTest extends PHPUnit_Framework_TestCase
         $this->assertContains($this->_plug,$output);
     }
 
+    function testOnMapRequest()
+    {
+        $p = \PMVC\plug($this->_plug);
+        $url = \PMVC\plug('url', [
+            'REQUEST_URI'=>'/fake/hello',
+            'SCRIPT_NAME'=>'/fake/'
+        ]);
+        $p->onMapRequest();
+        $r = \PMVC\plug('controller')->getRequest();
+        $this->assertEquals(['hello'],\PMVC\get($r));
+    }
 }
