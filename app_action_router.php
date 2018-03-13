@@ -8,6 +8,9 @@ ${_INIT_CONFIG}[_CLASS] = __NAMESPACE__.'\app_action_router';
     'http'=>null
 ));
 
+/**
+ * @parameters bool appOnly 
+ */
 class app_action_router 
     extends \PMVC\PlugIn\http\http
     implements \PMVC\RouterInterface
@@ -22,7 +25,9 @@ class app_action_router
         if (!empty($request[0])) {
             $controller->setApp($request[0]);
         }
-        if (!empty($request[1])) {
+        if (!empty($request[1]) &&
+            empty($this['appOnly'])
+        ) {
             $controller->setAppAction($request[1]);
         }
     }
