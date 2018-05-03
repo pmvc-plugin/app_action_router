@@ -13,7 +13,6 @@ ${_INIT_CONFIG}[_CLASS] = __NAMESPACE__.'\app_action_router';
  */
 class app_action_router 
     extends \PMVC\PlugIn\http\http
-    implements \PMVC\RouterInterface
 {
     public function onMapRequest()
     {
