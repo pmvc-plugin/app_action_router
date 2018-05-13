@@ -12,6 +12,7 @@ ${_INIT_CONFIG}[_CLASS] = __NAMESPACE__.'\app_action_router';
 
 /**
  * @parameters bool appOnly 
+ * @parameters bool seo
  */
 class app_action_router 
     extends http
@@ -20,16 +21,27 @@ class app_action_router
     {
         $controller = \PMVC\plug('controller');
         $request = $controller->getRequest();
-        if (empty($request[0])) {
+
+        // detect seo
+        $first = $request[0];
+        if ($this['seo'] && '+' === substr($first, -1)) {
+            $app = $request[1];
+            $action = $request[2];
+        } else {
+            $app = $request[0];
+            $action = $request[1];
+        }
+
+        if (empty($app)) {
             return;
+        } else {
+            $controller->setApp($app);
         }
-        if (!empty($request[0])) {
-            $controller->setApp($request[0]);
-        }
-        if (!empty($request[1]) &&
+
+        if (!empty($action) &&
             empty($this['appOnly'])
         ) {
-            $controller->setAppAction($request[1]);
+            $controller->setAppAction($action);
         }
     }
 
