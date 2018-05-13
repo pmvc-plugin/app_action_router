@@ -28,7 +28,8 @@ class RoutingTest extends PHPUnit_Framework_TestCase
             'REQUEST_URI'=>'/fake/index.php/hello',
             'SCRIPT_NAME'=>'/fake/index.php'
         ]);
-        \PMVC\plug('http');
+        $http = \PMVC\plug('http');
+        $http->onMapRequest();
         $p = \PMVC\plug($this->_plug);
         $p->onMapRequest();
         $r = \PMVC\plug('controller')->getRequest();

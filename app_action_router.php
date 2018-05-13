@@ -1,18 +1,20 @@
 <?php
 namespace PMVC\PlugIn\app_action_router;
 
+use PMVC\PlugIn\http\http;
+
 ${_INIT_CONFIG}[_CLASS] = __NAMESPACE__.'\app_action_router';
 
-\PMVC\initPlugIn(array(
+\PMVC\initPlugIn([
     'url'=>null,
     'http'=>null
-));
+]);
 
 /**
  * @parameters bool appOnly 
  */
 class app_action_router 
-    extends \PMVC\PlugIn\http\http
+    extends http
 {
     public function onMapRequest()
     {
