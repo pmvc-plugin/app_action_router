@@ -24,7 +24,7 @@ class app_action_router
 
         // detect seo
         $first = $request[0];
-        if ($this['seo'] && '+' === substr($first, -1)) {
+        if ($this['seo'] && ' ' === substr($first, -1)) {
             $app = $request[1];
             $action = $request[2];
         } else {
