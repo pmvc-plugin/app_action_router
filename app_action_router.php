@@ -10,6 +10,8 @@ ${_INIT_CONFIG}[_CLASS] = __NAMESPACE__.'\app_action_router';
     'http'=>null
 ]);
 
+const SEO = '__seo__';
+
 /**
  * @parameters bool appOnly 
  * @parameters bool seo
@@ -27,6 +29,9 @@ class app_action_router
         if ($this['seo'] && ' ' === substr($first, -1)) {
             $app = $request[1];
             $action = $request[2];
+            if (!isset($request[SEO])) {
+                $request[SEO] = substr($first, 0, -1);
+            }
         } else {
             $app = $request[0];
             $action = $request[1];
